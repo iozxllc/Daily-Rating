@@ -1,0 +1,63 @@
+<resources>
+
+    <string name="app_name">"दैनिक रेटिंग"</string>
+    <string name="navigation_drawer_open">"ओपन नेविगेशन दराज"</string>
+    <string name="navigation_drawer_close">"बंद नेविगेशन दराज"</string>
+    <string name="action_example">"उदाहरण कार्रवाई"</string>
+    <string name="action_settings">"सेटिंग्स"</string>
+    <string name="connected">"स्थान सेवाओं से जुड़े"</string>
+    <string name="disconnected">"स्थान सेवाओं से काट दिया"</string>
+    <string name="turn_on_GPS">"जीपीएस पर बारी, या उपेक्षा के लिए स्वाइप करने के लिए क्लिक करें"</string>
+    <string name="no_resolution">"कनेक्शन त्रुटि को हल करने में असमर्थ: गूगल सेवाओं खेलें."</string>
+    <string name="unknown_activity_request_code">"
+        एक अज्ञात गतिविधि अनुरोध कोड प्राप्त %1$d onActivityResult में.
+    "</string>
+    <string name="play_services_available">"स्थान सेवाएं उपलब्ध है"</string>
+    <string name="ok">"ठीक है"</string>
+    <string name="cancel">"रद्द करें "</string>
+    <string name="waitingForEvent">"डिवाइस से घटना के लिए प्रतीक्षा कर रहा है ..."</string>
+    <string name="unable_to_connect_to_google_plus">"यह सुविधा Google+ के ढांचे के लिए उपयोग की आवश्यकता है, और अपने फोन को पल में इसे करने के लिए कनेक्ट करने में असमर्थ है."</string>
+    
+    <string name="driving">"ड्राइविंग"</string>
+    <string name="still">"अब तक"</string>
+    <string name="walking_running">"चलना / रनिंग"</string>
+    <string name="biking">"मोटर साइकिल चलाना "</string>
+    <string name="tilting">"झुकाना"</string>
+    <string name="unknown_movement">"[[अज्ञात आंदोलन]]"</string>
+    <string name="recording_stopped">"घटना रिकॉर्डिंग रोका गया"</string>
+    
+    <string name="placeholder">"Lorem Ipsum मातम"</string>
+    
+    <string name="chart_title_day">"दिन के ब्रेकडाउन"</string>
+    <string name="chart_title_lifetime">"लाइफटाइम ब्रेकडाउन"</string>
+    <string name="eventItemsTitle">"घटना ब्रेकडाउन"</string>
+    
+    <string name="navigation_drawer_menu_item_view_breakdown">"आंदोलन ब्रेकडाउन"</string>
+    <string name="navigation_drawer_menu_item_leaderboards">"लीडरबोर्ड"</string>
+    <string name="navigation_drawer_menu_item_achievements">"उपलब्धियां"</string>
+    <string name="navigation_drawer_menu_item_toggle_games_services">"खेल सेवाएँ"</string>
+    <string name="navigation_drawer_menu_item_toggle_event_recording">"घटना रिकॉर्डिंग"</string>
+    
+    <string name="popup_title_set_start_date">"सेट टूटने प्रारंभ तिथि"</string>
+    <string name="popup_title_set_end_date">"सेट टूटने अन्त तिथि"</string>
+    
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_day">"एक दिन में सबसे घूमना / रनिंग घंटे"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_day">"एक दिन में सबसे बैठे घंटे"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_day">"एक दिन में सबसे ड्राइविंग घंटे"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_day">"एक दिन में सबसे झुकाना घंटे"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_day">"एक दिन में सबसे बाइकिंग घंटे"</string>
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_month">"एक महीने में सबसे ज्यादा घूमना / रनिंग घंटे"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_month">"एक माह में अधिकांश बैठे घंटे"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_month">"एक माह में सर्वाधिक ड्राइविंग घंटे"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_month">"एक माह में सर्वाधिक झुकाना घंटे"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_month">"एक माह में सर्वाधिक बाइकिंग घंटे"</string>
+	
+	<string name="leaderboards_choice_title">"एक लीडरबोर्ड चुनें"</string>
+    
+    <string-array name="breakdownTitlesArray">
+        <item>"लाइफटाइम ब्रेकडाउन"</item>
+        <item>"आज का ब्रेकडाउन"</item>
+        <item>"इस महीने के टूटने"</item>
+        <item>"कस्टम ब्रेकडाउन"</item>
+    </string-array>
+</resources>

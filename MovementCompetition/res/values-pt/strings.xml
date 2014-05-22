@@ -1,0 +1,63 @@
+<resources>
+
+    <string name="app_name">"Daily Rating"</string>
+    <string name="navigation_drawer_open">"Open navigation drawer"</string>
+    <string name="navigation_drawer_close">"Close navigation drawer"</string>
+    <string name="action_example">"Example action"</string>
+    <string name="action_settings">"Configurações"</string>
+    <string name="connected">"Connected to Location Services"</string>
+    <string name="disconnected">"Disconnected from Location Services"</string>
+    <string name="turn_on_GPS">"Click to turn on GPS, or swipe to ignore"</string>
+    <string name="no_resolution">"Google Play serviços: não foi possível resolver erro de conexão."</string>
+    <string name="unknown_activity_request_code">"
+        Recebido um pedido de atividade desconhecida. Código %1$d em onActivityResult.
+    "</string>
+    <string name="play_services_available">"Serviço de localização está disponível"</string>
+    <string name="ok">"OK"</string>
+    <string name="cancel">"Cancelar"</string>
+    <string name="waitingForEvent">"Waiting for event from device…"</string>
+    <string name="unable_to_connect_to_google_plus">"This feature requires access to the Google+ framework, and your phone is unable to connect to it at the moment."</string>
+    
+    <string name="driving">"Driving"</string>
+    <string name="still">"Still"</string>
+    <string name="walking_running">"Walking/Running"</string>
+    <string name="biking">"Biking"</string>
+    <string name="tilting">"Tilting"</string>
+    <string name="unknown_movement">"[[Unknown Movement]]"</string>
+    <string name="recording_stopped">"Event Recording Paused"</string>
+    
+    <string name="placeholder">"Lorem ipsum dolor"</string>
+    
+    <string name="chart_title_day">"Day's Breakdown"</string>
+    <string name="chart_title_lifetime">"Lifetime Breakdown"</string>
+    <string name="eventItemsTitle">"Event Breakdown"</string>
+    
+    <string name="navigation_drawer_menu_item_view_breakdown">"Movement Breakdown"</string>
+    <string name="navigation_drawer_menu_item_leaderboards">"Leaderboards"</string>
+    <string name="navigation_drawer_menu_item_achievements">"Achievements"</string>
+    <string name="navigation_drawer_menu_item_toggle_games_services">"Games Services"</string>
+    <string name="navigation_drawer_menu_item_toggle_event_recording">"Event Recording"</string>
+    
+    <string name="popup_title_set_start_date">"Set Breakdown Start Date"</string>
+    <string name="popup_title_set_end_date">"Set Breakdown End Date"</string>
+    
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_day">"Most Walking/Running Hours in a Day"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_day">"Most Sitting Hours in a Day"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_day">"Most Driving Hours in a Day"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_day">"Most Tilting Hours in a Day"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_day">"Most Biking Hours in a Day"</string>
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_month">"Most Walking/Running Hours in a Month"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_month">"Most Sitting Hours in a Month"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_month">"Most Driving Hours in a Month"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_month">"Most Tilting Hours in a Month"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_month">"Most Biking Hours in a Month"</string>
+	
+	<string name="leaderboards_choice_title">"Choose a leaderboard"</string>
+    
+    <string-array name="breakdownTitlesArray">
+        <item>"Lifetime Breakdown"</item>
+        <item>"Today's Breakdown"</item>
+        <item>"This Month's Breakdown"</item>
+        <item>"Custom Breakdown"</item>
+    </string-array>
+</resources>

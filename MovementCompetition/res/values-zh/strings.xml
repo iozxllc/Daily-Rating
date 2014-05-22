@@ -1,0 +1,61 @@
+<resources>
+
+    <string name="app_name">"每日评级"</string>
+    <string name="navigation_drawer_open">"打开抽屉导航"</string>
+    <string name="navigation_drawer_close">"关闭导航抽屉"</string>
+    <string name="action_example">"例如行动"</string>
+    <string name="action_settings">"设置"</string>
+    <string name="connected">"连接到位置服务"</string>
+    <string name="disconnected">"从位置服务断开连接"</string>
+    <string name="turn_on_GPS">"点击开启GPS，刷卡或忽略"</string>
+    <string name="no_resolution">"谷歌播放服务：无法解析连接错误。"</string>
+    <string name="unknown_activity_request_code">"接收到未知的活动请求代码%1$d在onActivityResult。"</string>
+    <string name="play_services_available">"位置服务是可用的"</string>
+    <string name="ok">"确认"</string>
+    <string name="cancel">"取消"</string>
+    <string name="waitingForEvent">"等待事件从设备..."</string>
+    <string name="unable_to_connect_to_google_plus">"此功能需要访问Google+的框架，您的手机无法连接到它的时刻。"</string>
+    
+    <string name="driving">"驾驶"</string>
+    <string name="still">"还"</string>
+    <string name="walking_running">"行走/跑步"</string>
+    <string name="biking">"自行车"</string>
+    <string name="tilting">"倾斜"</string>
+    <string name="unknown_movement">"[[未知运动]]"</string>
+    <string name="recording_stopped">"事件记录已暂停"</string>
+    
+    <string name="placeholder">"Lorem存有悲"</string>
+    
+    <string name="chart_title_day">"当日明细"</string>
+    <string name="chart_title_lifetime">"一生击穿"</string>
+    <string name="eventItemsTitle">"事件击穿"</string>
+    
+    <string name="navigation_drawer_menu_item_view_breakdown">"运动击穿"</string>
+    <string name="navigation_drawer_menu_item_leaderboards">"排行榜"</string>
+    <string name="navigation_drawer_menu_item_achievements">"所获成就"</string>
+    <string name="navigation_drawer_menu_item_toggle_games_services">"游戏服务"</string>
+    <string name="navigation_drawer_menu_item_toggle_event_recording">"事件记录"</string>
+    
+    <string name="popup_title_set_start_date">"设置故障开始日期"</string>
+    <string name="popup_title_set_end_date">"设置击穿结束日期"</string>
+    
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_day">"在一天中最行走/跑步时间"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_day">"大多数坐在小时在一天"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_day">"在一天大部分时间驾驶"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_day">"在一天大部分时间倾斜"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_day">"大多数自行车小时在一天"</string>
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_month">"在本月最受欢迎行走/跑步时间"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_month">"大多数的开庭时间在一个月"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_month">"在本月最受欢迎驾驶时间"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_month">"在本月最受欢迎倾斜小时"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_month">"大多数自行车时间在一个月"</string>
+	
+	<string name="leaderboards_choice_title">"选择一个排行榜"</string>
+    
+    <string-array name="breakdownTitlesArray">
+        <item>"一生击穿"</item>
+        <item>"今天的击穿"</item>
+        <item>"本月击穿"</item>
+        <item>"自击穿"</item>
+    </string-array>
+</resources>

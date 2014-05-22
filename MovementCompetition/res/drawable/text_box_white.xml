@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape 
+    android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+	<solid android:color="@color/text_box_white" />
+	<corners android:radius="@dimen/text_box_border_radius"/>
+	<padding android:left="@dimen/text_box_inner_padding" 
+	    android:right="@dimen/text_box_inner_padding" 
+	    android:top="@dimen/text_box_inner_padding" 
+	    android:bottom="@dimen/text_box_inner_padding" />
+</shape>

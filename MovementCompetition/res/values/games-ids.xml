@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Google Play game services IDs.
+Save this file as res/values/games-ids.xml in your project.
+-->
+<resources>
+  <string name="app_id">811688071165</string>
+  <string name="achievement_couch_potato">CgkI_Z-E488XEAIQAA</string>
+  <string name="achievement_tilt">CgkI_Z-E488XEAIQAQ</string>
+  <string name="achievement_stop_and_go">CgkI_Z-E488XEAIQAg</string>
+  <string name="achievement_road_trip">CgkI_Z-E488XEAIQAw</string>
+  <string name="achievement_shortcut">CgkI_Z-E488XEAIQBA</string>
+  <string name="achievement_the_long_way">CgkI_Z-E488XEAIQBQ</string>
+  <string name="achievement_journey">CgkI_Z-E488XEAIQBg</string>
+  <string name="achievement_marathon">CgkI_Z-E488XEAIQBw</string>
+  <string name="achievement_wheel_spinner">CgkI_Z-E488XEAIQDQ</string>
+  <string name="leaderboard_most_walkingrunning_hours_in_a_day">CgkI_Z-E488XEAIQCA</string>
+  <string name="leaderboard_most_sitting_hours_in_a_day">CgkI_Z-E488XEAIQCQ</string>
+  <string name="leaderboard_most_driving_hours_in_a_day">CgkI_Z-E488XEAIQCg</string>
+  <string name="leaderboard_most_tilting_hours_in_a_day">CgkI_Z-E488XEAIQCw</string>
+  <string name="leaderboard_most_biking_hours_in_a_day">CgkI_Z-E488XEAIQDA</string>
+  <string name="leaderboard_most_walkingrunning_hours_in_a_month">CgkI_Z-E488XEAIQDw</string>
+  <string name="leaderboard_most_sitting_hours_in_a_month">CgkI_Z-E488XEAIQEA</string>
+  <string name="leaderboard_most_driving_hours_in_a_month">CgkI_Z-E488XEAIQEQ</string>
+  <string name="leaderboard_most_tilting_hours_in_a_month">CgkI_Z-E488XEAIQEg</string>
+  <string name="leaderboard_most_biking_hours_in_a_month">CgkI_Z-E488XEAIQEw</string>
+</resources>

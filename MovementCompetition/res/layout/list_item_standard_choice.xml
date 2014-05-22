@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/itemTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:minHeight="@dimen/nav_drawer_item_height"
+        android:gravity="center_vertical"
+        android:background="@drawable/nav_drawer_item_main"
+        android:text=""
+        android:padding="@dimen/nav_drawer_item_padding"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

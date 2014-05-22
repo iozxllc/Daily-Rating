@@ -1,0 +1,63 @@
+<resources>
+
+    <string name="app_name">"Codziennie Ranking"</string>
+    <string name="navigation_drawer_open">"Otwórz szufladę nawigacji"</string>
+    <string name="navigation_drawer_close">"Blisko nawigacji szuflady"</string>
+    <string name="action_example">"Przykład działania"</string>
+    <string name="action_settings">"Ustawienia"</string>
+    <string name="connected">"Połączone z usług lokalizacji"</string>
+    <string name="disconnected">"Odłączony od usług lokalizacji"</string>
+    <string name="turn_on_GPS">"Kliknij, aby włączyć GPS, lub przesunąć do ignorowania"</string>
+    <string name="no_resolution">"Google Play usługi: nie można rozwiązać błąd połączenia."</string>
+    <string name="unknown_activity_request_code">"
+        Otrzymał nieznany prośba działalność Kod %1$d w onActivityResult.
+    "</string>
+    <string name="play_services_available">"Lokalizacja Usługi jest dostępna"</string>
+    <string name="ok">"Działa prawidłowo "</string>
+    <string name="cancel">"Anuluj"</string>
+    <string name="waitingForEvent">"Czekam na razie z urządzenia ..."</string>
+    <string name="unable_to_connect_to_google_plus">"Ta funkcja wymaga dostępu do ram Google+, a telefon nie jest w stanie połączyć się z nim w tej chwili."</string>
+    
+    <string name="driving">"Jazdy"</string>
+    <string name="still">"Jeszcze"</string>
+    <string name="walking_running">"Objazdowe / Bieganie"</string>
+    <string name="biking">"Kolarstwo"</string>
+    <string name="tilting">"Przechylania"</string>
+    <string name="unknown_movement">"[[Nieznany Ruch]]"</string>
+    <string name="recording_stopped">"Nagrywanie zdarzeń Wstrzymane"</string>
+    
+    <string name="placeholder">"Lorem ipsum dolor"</string>
+    
+    <string name="chart_title_day">"Podział Day"</string>
+    <string name="chart_title_lifetime">"Żywotność Podział"</string>
+    <string name="eventItemsTitle">"Podział zdarzeń"</string>
+    
+    <string name="navigation_drawer_menu_item_view_breakdown">"Podział ruchu"</string>
+    <string name="navigation_drawer_menu_item_leaderboards">"Rankingi"</string>
+    <string name="navigation_drawer_menu_item_achievements">"Osiągnięcia"</string>
+    <string name="navigation_drawer_menu_item_toggle_games_services">"Gry Usługi"</string>
+    <string name="navigation_drawer_menu_item_toggle_event_recording">"Nagrywanie zdarzeń"</string>
+    
+    <string name="popup_title_set_start_date">"Ustaw Podział Początek"</string>
+    <string name="popup_title_set_end_date">"Data zakończenia ustawić Podział"</string>
+    
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_day">"Większość spacerowanie / bieganie godziny na dobę"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_day">"Większość godzin siedzi w Dniu"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_day">"Większość godzin jazdy w dzień"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_day">"Większość przechylnych godziny na dobę"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_day">"Większość Godziny rowerowe w dzień"</string>
+	<string name="leaderboard_title_most_walkingrunning_hours_in_a_month">"Większość spacerowanie / bieganie godzin w miesiącu"</string>
+	<string name="leaderboard_title_most_sitting_hours_in_a_month">"Większość godzin siedzi w miesiąc"</string>
+	<string name="leaderboard_title_most_driving_hours_in_a_month">"Większość czasu prowadzenia pojazdu w ciągu miesiąca"</string>
+	<string name="leaderboard_title_most_tilting_hours_in_a_month">"Większość przechylne godzin w miesiącu"</string>
+	<string name="leaderboard_title_most_biking_hours_in_a_month">"Większość Godziny rowerowe w miesiącu"</string>
+	
+	<string name="leaderboards_choice_title">"Wybierz liderów"</string>
+    
+    <string-array name="breakdownTitlesArray">
+        <item>"Żywotność Podział"</item>
+        <item>"Dzisiejsza Podział"</item>
+        <item>"Podział tego miesiąca"</item>
+        <item>"Podział na zlecenie"</item>
+    </string-array>
+</resources>

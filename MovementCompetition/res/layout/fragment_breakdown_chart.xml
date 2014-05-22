@@ -1,0 +1,221 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.iozxllc.movementcompetition.MainActivity$PlaceholderFragment"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2" >
+
+	    <ImageButton
+	        android:background="@color/transparent"
+	        android:src="@drawable/ic_calendar_back"
+	        android:id="@+id/startDateButton"
+	        style="?android:attr/buttonStyleSmall"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:text="" />
+
+	    <ImageButton
+	        android:background="@color/transparent"
+	        android:src="@drawable/ic_calendar_forward"
+	        android:id="@+id/endDateButton"
+	        style="?android:attr/buttonStyleSmall"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:text="" />
+
+	    <Spinner
+	        android:id="@+id/breakdown_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/startDateButton"
+	        android:layout_alignParentTop="true"
+	        android:layout_toLeftOf="@+id/endDateButton"
+	        android:layout_toRightOf="@+id/startDateButton" />
+
+	    <com.androidplot.pie.PieChart
+	        android:id="@+id/mySimplePieChart"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/breakdown_title" />
+	
+	    <RelativeLayout
+	        android:id="@+id/legendLayout"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/mySimplePieChart"
+	        android:layout_below="@+id/breakdown_title"
+	        android:layout_marginTop="@dimen/layout_item_margin"
+	        android:background="@drawable/text_box_white"
+	        android:orientation="vertical" >
+	
+	        <TextView
+	            android:id="@+id/pieChartLegendTextViewStill"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:drawableLeft="@drawable/pie_chart_legend_still"
+	            android:drawablePadding="@dimen/pie_chart_legend_drawable_padding"
+	            android:text="@string/still"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	        <TextView
+	            android:visibility="gone"
+	            android:id="@+id/pieChartLegendTextViewTimeStill"
+	            android:paddingLeft="@dimen/text_box_inner_padding"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@+id/pieChartLegendTextViewStill"
+	            android:layout_alignBottom="@+id/pieChartLegendTextViewStill"
+	            android:layout_toRightOf="@+id/pieChartLegendTextViewStill"
+	            android:text=""
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	
+	        <TextView
+	            android:id="@+id/pieChartLegendTextViewTilting"
+	            android:layout_below="@+id/pieChartLegendTextViewStill"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:drawableLeft="@drawable/pie_chart_legend_tilting"
+	            android:drawablePadding="@dimen/pie_chart_legend_drawable_padding"
+	            android:text="@string/tilting"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	        <TextView
+	            android:visibility="gone"
+	            android:id="@+id/pieChartLegendTextViewTimeTilting"
+	            android:paddingLeft="@dimen/text_box_inner_padding"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@+id/pieChartLegendTextViewTilting"
+	            android:layout_alignBottom="@+id/pieChartLegendTextViewTilting"
+	            android:layout_toRightOf="@+id/pieChartLegendTextViewTilting"
+	            android:text=""
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	
+	        <TextView
+	            android:id="@+id/pieChartLegendTextViewDriving"
+	            android:layout_below="@+id/pieChartLegendTextViewTilting"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:drawableLeft="@drawable/pie_chart_legend_driving"
+	            android:drawablePadding="@dimen/pie_chart_legend_drawable_padding"
+	            android:text="@string/driving"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	        <TextView
+	            android:visibility="gone"
+	            android:id="@+id/pieChartLegendTextViewTimeDriving"
+	            android:paddingLeft="@dimen/text_box_inner_padding"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@+id/pieChartLegendTextViewDriving"
+	            android:layout_alignBottom="@+id/pieChartLegendTextViewDriving"
+	            android:layout_toRightOf="@+id/pieChartLegendTextViewDriving"
+	            android:text=""
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	
+	        <TextView
+	            android:id="@+id/pieChartLegendTextViewBiking"
+	            android:layout_below="@+id/pieChartLegendTextViewDriving"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:drawableLeft="@drawable/pie_chart_legend_biking"
+	            android:drawablePadding="@dimen/pie_chart_legend_drawable_padding"
+	            android:text="@string/biking"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	        <TextView
+	            android:visibility="gone"
+	            android:id="@+id/pieChartLegendTextViewTimeBiking"
+	            android:paddingLeft="@dimen/text_box_inner_padding"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@+id/pieChartLegendTextViewBiking"
+	            android:layout_alignBottom="@+id/pieChartLegendTextViewBiking"
+	            android:layout_toRightOf="@+id/pieChartLegendTextViewBiking"
+	            android:text=""
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	
+	        <TextView
+	            android:id="@+id/pieChartLegendTextViewWalking"
+	            android:layout_below="@+id/pieChartLegendTextViewBiking"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:drawableLeft="@drawable/pie_chart_legend_walking"
+	            android:drawablePadding="@dimen/pie_chart_legend_drawable_padding"
+	            android:text="@string/walking_running"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	        <TextView
+	            android:visibility="gone"
+	            android:id="@+id/pieChartLegendTextViewTimeWalking"
+	            android:paddingLeft="@dimen/text_box_inner_padding"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@+id/pieChartLegendTextViewWalking"
+	            android:layout_alignBottom="@+id/pieChartLegendTextViewWalking"
+	            android:layout_toRightOf="@+id/pieChartLegendTextViewWalking"
+	            android:text=""
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	    </RelativeLayout>
+
+	    <TextView
+	        android:id="@+id/waitingForEventTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:text="@string/waitingForEvent"
+	        android:gravity="center"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </RelativeLayout>       
+
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+	    android:background="@drawable/text_box_white" >
+
+	    <TextView
+	        android:id="@+id/eventItemsTitleTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:text="@string/eventItemsTitle"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	    <ScrollView
+	        android:id="@+id/eventItemsScrollView"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/eventItemsTitleTextView"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true" >
+	
+	        <LinearLayout
+	            android:id="@+id/eventItemsLayout"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:orientation="vertical" >
+	        </LinearLayout>
+	    </ScrollView>
+
+	</RelativeLayout>
+</LinearLayout>

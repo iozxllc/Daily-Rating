@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/iconImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+		android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher"
+        android:padding="@dimen/event_icon_padding" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iconImageView" >
+
+        <TextView
+            android:id="@+id/eventTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/placeholder"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/eventDetailsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_below="@+id/eventTitleTextView"
+            android:layout_alignParentLeft="true"
+            android:text="@string/placeholder"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

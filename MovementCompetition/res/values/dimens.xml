@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--
+         Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html
+    -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    
+    <dimen name="pie_chart_text_size">13dp</dimen>
+	<dimen name="pie_chart_legend_height">10dp</dimen>
+	<dimen name="pie_chart_legend_width">10dp</dimen>
+	<dimen name="pie_chart_legend_drawable_padding">5dp</dimen>
+	<dimen name="pie_chart_border_width">4dp</dimen>
+	
+	<dimen name="text_box_border_radius">5dp</dimen>
+	<dimen name="text_box_inner_padding">5dp</dimen>
+	
+	<dimen name="layout_item_margin">10dp</dimen>
+	
+	<dimen name="event_icon_padding">10dp</dimen>
+	
+	<dimen name="nav_drawer_item_height">60dp</dimen>
+	<dimen name="nav_drawer_switch_height">40dp</dimen>
+	<dimen name="nav_drawer_item_padding">5dp</dimen>
+</resources>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config
+        fillPaint.color="@color/pie_chart_color_still"
+        labelPaint.textSize="@dimen/pie_chart_text_size" />
