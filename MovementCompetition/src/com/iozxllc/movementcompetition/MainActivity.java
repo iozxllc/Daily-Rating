@@ -11,12 +11,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender.SendIntentException;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -740,11 +742,6 @@ public class MainActivity extends Activity
     protected void onResume() {
         super.onResume();
 
-        // Register the broadcast receiver
-        mBroadcastManager.registerReceiver(
-                updateListReceiver,
-                mBroadcastFilter);
-
         // Load updated activity history
         updateActivityHistory();
     }
@@ -756,7 +753,7 @@ public class MainActivity extends Activity
     protected void onPause() {
 
         // Stop listening to broadcasts when the Activity isn't visible.
-        mBroadcastManager.unregisterReceiver(updateListReceiver);
+        //mBroadcastManager.unregisterReceiver(updateListReceiver);
 
         super.onPause();
     }    
@@ -780,6 +777,11 @@ public class MainActivity extends Activity
 				}
     		}).start();
         }
+
+        // Register the broadcast receiver
+        mBroadcastManager.registerReceiver(
+                updateListReceiver,
+                mBroadcastFilter);
     }
 
     /**
@@ -825,6 +827,13 @@ public class MainActivity extends Activity
          */
         mRequestType = REQUEST_TYPE.ADD;
 
+        ComponentName receiver = new ComponentName(this, ActivityRecognitionIntentService.class);
+        PackageManager pm = getPackageManager();
+
+        pm.setComponentEnabledSetting(receiver,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);       
+        
         // Pass the update request to the requester object
         mDetectionRequester.requestUpdates();
         System.out.println("updates are requested");
