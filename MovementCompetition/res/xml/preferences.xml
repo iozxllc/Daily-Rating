@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- opens a subscreen of settings -->
+    <PreferenceScreen
+        android:key="button_credits_key"
+        android:title="@string/credits"
+        android:persistent="false">
+		<Preference
+		    android:icon="@drawable/ic_biking"
+		    android:title="@string/credits_title_biking_icon"
+		    android:summary="@string/credits_summary_biking_icon" />
+		<Preference
+		    android:icon="@drawable/ic_driving"
+		    android:title="@string/credits_title_driving_icon"
+		    android:summary="@string/credits_summary_driving_icon" />
+		<Preference
+		    android:icon="@drawable/ic_still"
+		    android:title="@string/credits_title_still_icon"
+		    android:summary="@string/credits_summary_still_icon" />
+		<Preference
+		    android:icon="@drawable/ic_tilting"
+		    android:title="@string/credits_title_tilting_icon"
+		    android:summary="@string/credits_summary_tilting_icon" />
+    </PreferenceScreen>
+</PreferenceScreen>

@@ -52,8 +52,9 @@ public class MainActivity extends Activity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    
+
     private BreakdownChartFragment breakdownChartFragment;
+    private SettingsFragment settingsFragment;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -666,7 +667,14 @@ public class MainActivity extends Activity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+        	settingsFragment = SettingsFragment.newInstance();
+        	
+            // update the main content by replacing fragments
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, settingsFragment)
+                    .addToBackStack("Settings Fragment")
+                    .commit();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -827,8 +835,8 @@ public class MainActivity extends Activity
          */
         mRequestType = REQUEST_TYPE.ADD;
 
-        ComponentName receiver = new ComponentName(this, ActivityRecognitionIntentService.class);
         PackageManager pm = getPackageManager();
+        ComponentName receiver = new ComponentName(this, ActivityRecognitionIntentService.class);
 
         pm.setComponentEnabledSetting(receiver,
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,

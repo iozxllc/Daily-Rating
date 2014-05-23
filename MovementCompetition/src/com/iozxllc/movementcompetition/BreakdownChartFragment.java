@@ -304,55 +304,57 @@ public class BreakdownChartFragment extends Fragment {
     }
 
     public void renderMovementHistoryPieChart() {
-    	System.out.println("rendering pie chart "+startDate+" "+endDate);
-    	
-    	MovementBreakdown breakdown = mainActivity.movementHistory.getBreakdown(getActivity(), startDate, endDate);
-    	
-    	if (breakdown.breakdownList.size() > 0) {
-    		getView().findViewById(R.id.waitingForEventTextView).setVisibility(View.GONE);
-    	}
-    	
-    	if (getView() != null) {
-	        chart = (PieChart) getView().findViewById(R.id.mySimplePieChart);
-	        chart.clear();
-	
-	        if (mainActivity.movementHistory.isNeedToReloadHistory()) {
-	        	mainActivity.movementHistory.loadHistory(getActivity());
-	        }
-	        
-	        for (MovementBreakdownItem breakdownItem : breakdown.breakdownList) {
-	        	Segment segment = new Segment(MovementHistory.getNameFromType(breakdownItem.movementTypeID, getActivity()), breakdownItem.frequencyProportion);
-	
-	        	BiMap<Integer, Integer> reverseLegendTimes = legendTimeTextViewsAndMovementIDs.inverse();
-	        	int textViewID = reverseLegendTimes.get(breakdownItem.movementTypeID);
-	        	String newText = String.format(Locale.US, " (%02d:%02d:%02d)",
-	        			TimeUnit.MILLISECONDS.toHours(breakdownItem.millisSpent),
-	        			(TimeUnit.MILLISECONDS.toMinutes(breakdownItem.millisSpent) 
-	        					- TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(breakdownItem.millisSpent))),
-	        			(TimeUnit.MILLISECONDS.toSeconds(breakdownItem.millisSpent) 
-	        					- TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(breakdownItem.millisSpent))));
-	        	((TextView) getView().findViewById(textViewID)).setText(newText);
-		        //EmbossMaskFilter emf = new EmbossMaskFilter(new float[]{1, 1, 1}, 0.4f, 10, 8.2f);
+    	if(getView() != null) {
+	    	System.out.println("rendering pie chart "+startDate+" "+endDate);
+	    	
+	    	MovementBreakdown breakdown = mainActivity.movementHistory.getBreakdown(getActivity(), startDate, endDate);
+	    	
+	    	if (breakdown.breakdownList.size() > 0) {
+	    		getView().findViewById(R.id.waitingForEventTextView).setVisibility(View.GONE);
+	    	}
+	    	
+	    	if (getView() != null) {
+		        chart = (PieChart) getView().findViewById(R.id.mySimplePieChart);
+		        chart.clear();
+		
+		        if (mainActivity.movementHistory.isNeedToReloadHistory()) {
+		        	mainActivity.movementHistory.loadHistory(getActivity());
+		        }
 		        
-		        SegmentFormatter sf = new SegmentFormatter();
-		        sf.configure(getActivity(), breakdownItem.xmlDrawableID);
-		        sf.getRadialEdgePaint().setColor(getResources().getColor(breakdownItem.borderColorID));
-		        sf.getRadialEdgePaint().setStrokeWidth(getResources().getDimension(R.dimen.pie_chart_border_width));
-		        sf.getRadialEdgePaint().setAntiAlias(true);
-		        sf.getFillPaint().setAntiAlias(true);
-		        sf.getInnerEdgePaint().setAntiAlias(true);
-		        sf.getOuterEdgePaint().setAntiAlias(true);
-		        //sf.getFillPaint().setMaskFilter(emf);
-		        chart.addSeries(segment, sf);
-		    }
-	
-	        chart.getBorderPaint().setColor(Color.TRANSPARENT);
-	        chart.getBackgroundPaint().setColor(Color.TRANSPARENT);
-	        PieRenderer pieRenderer = chart.getRenderer(PieRenderer.class);
-	        if (pieRenderer != null) {
-	        	pieRenderer.setDonutSize(0.25f, PieRenderer.DonutMode.PERCENT);
-	        }
-	        chart.redraw();
+		        for (MovementBreakdownItem breakdownItem : breakdown.breakdownList) {
+		        	Segment segment = new Segment(MovementHistory.getNameFromType(breakdownItem.movementTypeID, getActivity()), breakdownItem.frequencyProportion);
+		
+		        	BiMap<Integer, Integer> reverseLegendTimes = legendTimeTextViewsAndMovementIDs.inverse();
+		        	int textViewID = reverseLegendTimes.get(breakdownItem.movementTypeID);
+		        	String newText = String.format(Locale.US, " (%02d:%02d:%02d)",
+		        			TimeUnit.MILLISECONDS.toHours(breakdownItem.millisSpent),
+		        			(TimeUnit.MILLISECONDS.toMinutes(breakdownItem.millisSpent) 
+		        					- TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(breakdownItem.millisSpent))),
+		        			(TimeUnit.MILLISECONDS.toSeconds(breakdownItem.millisSpent) 
+		        					- TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(breakdownItem.millisSpent))));
+		        	((TextView) getView().findViewById(textViewID)).setText(newText);
+			        //EmbossMaskFilter emf = new EmbossMaskFilter(new float[]{1, 1, 1}, 0.4f, 10, 8.2f);
+			        
+			        SegmentFormatter sf = new SegmentFormatter();
+			        sf.configure(getActivity(), breakdownItem.xmlDrawableID);
+			        sf.getRadialEdgePaint().setColor(getResources().getColor(breakdownItem.borderColorID));
+			        sf.getRadialEdgePaint().setStrokeWidth(getResources().getDimension(R.dimen.pie_chart_border_width));
+			        sf.getRadialEdgePaint().setAntiAlias(true);
+			        sf.getFillPaint().setAntiAlias(true);
+			        sf.getInnerEdgePaint().setAntiAlias(true);
+			        sf.getOuterEdgePaint().setAntiAlias(true);
+			        //sf.getFillPaint().setMaskFilter(emf);
+			        chart.addSeries(segment, sf);
+			    }
+		
+		        chart.getBorderPaint().setColor(Color.TRANSPARENT);
+		        chart.getBackgroundPaint().setColor(Color.TRANSPARENT);
+		        PieRenderer pieRenderer = chart.getRenderer(PieRenderer.class);
+		        if (pieRenderer != null) {
+		        	pieRenderer.setDonutSize(0.25f, PieRenderer.DonutMode.PERCENT);
+		        }
+		        chart.redraw();
+	    	}
     	}
     }
     
@@ -408,7 +410,7 @@ public class BreakdownChartFragment extends Fragment {
 	    		LayoutInflater inflater = LayoutInflater.from(getActivity());
 	    		for (int i = eventsHolderLayout.getChildCount(); i < relavantMovementsList.size(); i++) {
 	    			RelativeLayout eventLayout = (RelativeLayout) inflater.inflate(R.layout.event_breakdown_item, null);
-	    			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/FF h:mm:ss.S a", Locale.US);
+	    			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd h:mm:ss.S a", Locale.US);
 	    			((TextView) eventLayout.findViewById(R.id.eventDetailsTextView)).setText(sdf.format(relavantMovementsList.get(i).movementDate.getTime()));
 	    			((TextView) eventLayout.findViewById(R.id.eventTitleTextView)).setText(
 	    					MovementHistory.getNameFromType(relavantMovementsList.get(i).movementTypeID, getActivity())

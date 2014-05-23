@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="credits">Credits</string>
+    <string name="credits_title_biking_icon">Bicycle</string>
+    <string name="credits_summary_biking_icon">Bicycle designed by Scott Lewis from the Noun Project</string>
+    <string name="credits_title_driving_icon">Car</string>
+    <string name="credits_summary_driving_icon">Car designed by Felipe Bachian from the Noun Project</string>
+    <string name="credits_title_still_icon">Chair</string>
+    <string name="credits_summary_still_icon">Chair designed by Sofie Hauge Katan from the Noun Project</string>
+    <string name="credits_title_tilting_icon">Phone</string>
+    <string name="credits_summary_tilting_icon">Phone designed by Joris Hoogendoorn from the Noun Project. This image has been altered for this project.</string>
 
     <string name="app_name">Daily Rating</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Additional Settings</string>
     <string name="connected">Connected to Location Services</string>
     <string name="disconnected">Disconnected from Location Services</string>
     <string name="turn_on_GPS">Click to turn on GPS, or swipe to ignore</string>
