@@ -106,7 +106,11 @@ public class EntryAdapter extends ArrayAdapter<NavigationDrawerElement> {
 				    	editor.putBoolean(MainActivity.SHARED_PREFERENCES_USE_GOOGLE_PLUS, mainActivity.savedWantsToConnectToGooglePlus);
 				    	editor.commit();
 				    	
-				    	mainActivity.tryConnectToGooglePlus();
+				    	if (isChecked) {
+				    		mainActivity.tryConnectToGooglePlus();
+				    	} else {
+				    		mainActivity.tryDisconnectToGooglePlus();
+				    	}
 					}
 				});
 				

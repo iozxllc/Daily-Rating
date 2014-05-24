@@ -1,7 +1,7 @@
 package com.iozxllc.movementcompetition;
 
 import java.util.Calendar;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -87,17 +87,18 @@ public class MainActivity extends Activity
     public static int RC_RESOLVE = 9001;
     public static int REQUEST_ACHIEVEMENTS = 1238;
     public static int REQUEST_LEADERBOARD = 3232;
-    public static Map<Integer, Integer> leaderboardsMap = new HashMap<>();
+    public static int leaderboardsDecimalMultiplier = 10000;
+    public static Map<Integer, Integer> leaderboardsMap = new LinkedHashMap<>();
     static {
     	leaderboardsMap.put(R.string.leaderboard_title_most_biking_hours_in_a_day, R.string.leaderboard_most_biking_hours_in_a_day);
-    	leaderboardsMap.put(R.string.leaderboard_title_most_biking_hours_in_a_month, R.string.leaderboard_most_biking_hours_in_a_month);
     	leaderboardsMap.put(R.string.leaderboard_title_most_driving_hours_in_a_day, R.string.leaderboard_most_driving_hours_in_a_day);
-    	leaderboardsMap.put(R.string.leaderboard_title_most_driving_hours_in_a_month, R.string.leaderboard_most_driving_hours_in_a_month);
     	leaderboardsMap.put(R.string.leaderboard_title_most_sitting_hours_in_a_day, R.string.leaderboard_most_sitting_hours_in_a_day);
-    	leaderboardsMap.put(R.string.leaderboard_title_most_sitting_hours_in_a_month, R.string.leaderboard_most_tilting_hours_in_a_month);
     	leaderboardsMap.put(R.string.leaderboard_title_most_tilting_hours_in_a_day, R.string.leaderboard_most_tilting_hours_in_a_day);
-    	leaderboardsMap.put(R.string.leaderboard_title_most_tilting_hours_in_a_month, R.string.leaderboard_most_tilting_hours_in_a_month);
     	leaderboardsMap.put(R.string.leaderboard_title_most_walkingrunning_hours_in_a_day, R.string.leaderboard_most_walkingrunning_hours_in_a_day);
+    	leaderboardsMap.put(R.string.leaderboard_title_most_biking_hours_in_a_month, R.string.leaderboard_most_biking_hours_in_a_month);
+    	leaderboardsMap.put(R.string.leaderboard_title_most_driving_hours_in_a_month, R.string.leaderboard_most_driving_hours_in_a_month);
+    	leaderboardsMap.put(R.string.leaderboard_title_most_sitting_hours_in_a_month, R.string.leaderboard_most_tilting_hours_in_a_month);
+    	leaderboardsMap.put(R.string.leaderboard_title_most_tilting_hours_in_a_month, R.string.leaderboard_most_tilting_hours_in_a_month);
     	leaderboardsMap.put(R.string.leaderboard_title_most_walkingrunning_hours_in_a_month, R.string.leaderboard_most_walkingrunning_hours_in_a_month);
     }
     
@@ -183,7 +184,7 @@ public class MainActivity extends Activity
 							@Override
 							public void run() {
 								mNavigationDrawerFragment.entryAdapter.notifyDataSetChanged();
-								
+								achievementsLeaderboardsPulseTimer.cancel();
 								achievementsLeaderboardsPulseTimer = new Timer();
 								achievementsLeaderboardsPulseTimer.scheduleAtFixedRate(new TimerTask() {
 									@Override
@@ -432,7 +433,7 @@ public class MainActivity extends Activity
 				i++;
     		}
     		
-    		//Achievement: wheel spinner (Walk for 3 hours straight)
+    		//Achievement: wheel spinner (go bike riding)
     		thresholdMillis = 1000 * 60 * 60 * 3;
     		i = 0;
     		for (Movement movement : allTimeBreakdown.countableMovementsList) {
@@ -444,90 +445,123 @@ public class MainActivity extends Activity
 				i++;
     		}
     		
+    		System.out.println("led d w/r:");
     		//Leaderboard: walking/running in a day
     		for (MovementBreakdownItem item : todaysTimeBreakdown.breakdownList) {
     			if (item.movementTypeID == DetectedActivity.ON_FOOT) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_walkingrunning_hours_in_a_day), hours);
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_walkingrunning_hours_in_a_day), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard d update walking is "+hours);
+    				break;
     			}
     		}
     		
+    		System.out.println("led d s:");
     		//Leaderboard: sitting in a day
+			double hoursx = 0;
     		for (MovementBreakdownItem item : todaysTimeBreakdown.breakdownList) {
-    			long hours = 0;
     			if (item.movementTypeID == DetectedActivity.STILL || item.movementTypeID == DetectedActivity.UNKNOWN) {
-    				hours += item.millisSpent / (1000L * 60L * 60L);
+    				 hoursx += (double) (item.millisSpent) / (1000d * 60d * 60d);
     			}
-				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_sitting_hours_in_a_day), hours);
     		}
-    		
+    		if (hoursx != 0) {
+				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_sitting_hours_in_a_day), (long) (hoursx * leaderboardsDecimalMultiplier));
+				System.out.println("Leaderboard d update sitting is "+hoursx);
+    		}
+
+    		System.out.println("led d d:");
     		//Leaderboard: driving in a day
     		for (MovementBreakdownItem item : todaysTimeBreakdown.breakdownList) {
     			if (item.movementTypeID == DetectedActivity.IN_VEHICLE) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_driving_hours_in_a_day), hours);
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_driving_hours_in_a_day), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard d update driving is "+hours);
+    				break;
     			}
     		}
-    		
+
+    		System.out.println("led d t:");
     		//Leaderboard: tilting in a day
     		for (MovementBreakdownItem item : todaysTimeBreakdown.breakdownList) {
     			if (item.movementTypeID == DetectedActivity.TILTING) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_tilting_hours_in_a_day), hours);
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_tilting_hours_in_a_day), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard d update tilting is "+hours);
+    				break;
     			}
     		}
-    		
+
+    		System.out.println("led d b:");
     		//Leaderboard: biking in a day
     		for (MovementBreakdownItem item : todaysTimeBreakdown.breakdownList) {
-    			if (item.movementTypeID == DetectedActivity.TILTING) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_biking_hours_in_a_day), hours);
+    			if (item.movementTypeID == DetectedActivity.ON_BICYCLE) {
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_biking_hours_in_a_day), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard d update biking is "+hours);
+    				break;
     			}
     		}
     		
     		/////
 
-    		
+    		System.out.println("led m w/r:");
     		//Leaderboard: walking/running in a month
     		for (MovementBreakdownItem item : thisMonthsTimeBreakdown.breakdownList) {
     			if (item.movementTypeID == DetectedActivity.ON_FOOT) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_walkingrunning_hours_in_a_month), hours);
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_walkingrunning_hours_in_a_month), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard m update walking is "+hours);
+    				break;
     			}
     		}
-    		
+
+    		System.out.println("led m s:");
     		//Leaderboard: sitting in a month
+			double hoursy = 0;
     		for (MovementBreakdownItem item : thisMonthsTimeBreakdown.breakdownList) {
-    			long hours = 0;
     			if (item.movementTypeID == DetectedActivity.STILL || item.movementTypeID == DetectedActivity.UNKNOWN) {
-    				hours += item.millisSpent / (1000L * 60L * 60L);
+    				hoursy += (double) (item.millisSpent) / (1000d * 60d * 60d);
     			}
-				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_sitting_hours_in_a_month), hours);
     		}
-    		
+    		if (hoursy != 0) {
+				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_sitting_hours_in_a_month), (long) (hoursy * leaderboardsDecimalMultiplier));
+				System.out.println("Leaderboard m update sitting is "+hoursy);
+    		}
+
+    		System.out.println("led m d:");
     		//Leaderboard: driving in a month
     		for (MovementBreakdownItem item : thisMonthsTimeBreakdown.breakdownList) {
     			if (item.movementTypeID == DetectedActivity.IN_VEHICLE) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_driving_hours_in_a_month), hours);
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_driving_hours_in_a_month), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard m update driving is "+hours);
+    				break;
     			}
     		}
-    		
+
+    		System.out.println("led m t:");
     		//Leaderboard: tilting in a month
     		for (MovementBreakdownItem item : thisMonthsTimeBreakdown.breakdownList) {
     			if (item.movementTypeID == DetectedActivity.TILTING) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_tilting_hours_in_a_month), hours);
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_tilting_hours_in_a_month), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard m update tilting is "+hours);
+    				break;
     			}
     		}
-    		
+
+    		System.out.println("led m b:");
     		//Leaderboard: biking in a month
     		for (MovementBreakdownItem item : thisMonthsTimeBreakdown.breakdownList) {
-    			if (item.movementTypeID == DetectedActivity.TILTING) {
-    				long hours = item.millisSpent / (1000L * 60L * 60L);
-    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_biking_hours_in_a_month), hours);
+    			if (item.movementTypeID == DetectedActivity.ON_BICYCLE) {
+    				double hours = (double) (item.millisSpent) / (1000d * 60d * 60d);
+    				Games.Leaderboards.submitScore(gamesClient, getResources().getString(R.string.leaderboard_most_biking_hours_in_a_month), (long) (hours * leaderboardsDecimalMultiplier));
+    				System.out.println("Leaderboard m update biking is "+hours);
+    				break;
     			}
     		}
+    	} else {
+    		System.out.println("PULSED BUT NOT DOING GAMES SERVICES");
     	}
     }
     
@@ -604,6 +638,15 @@ public class MainActivity extends Activity
 				}
     		}).start();
 	    }
+    }
+    
+    public void tryDisconnectToGooglePlus() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+	            gamesClient.disconnect();
+			}
+		}).start();
     }
 
     @Override
@@ -768,7 +811,7 @@ public class MainActivity extends Activity
     
     @Override
     protected void onStop() {
-    	achievementsLeaderboardsPulseTimer.cancel();
+    	//achievementsLeaderboardsPulseTimer.cancel();
     	super.onStop();
     }
     
